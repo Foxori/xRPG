@@ -1,0 +1,9 @@
+C:\Users\FoXor\TTOS0300-RPG-L5565\xRPG\GameEngine\bin\Debug\GameEngine.dll
+C:\Users\FoXor\TTOS0300-RPG-L5565\xRPG\GameEngine\bin\Debug\GameEngine.pdb
+C:\Users\FoXor\TTOS0300-RPG-L5565\xRPG\GameEngine\obj\Debug\GameEngine.csprojResolveAssemblyReference.cache
+C:\Users\FoXor\TTOS0300-RPG-L5565\xRPG\GameEngine\obj\Debug\GameEngine.csproj.CoreCompileInputs.cache
+C:\Users\FoXor\TTOS0300-RPG-L5565\xRPG\GameEngine\obj\Debug\GameEngine.dll
+C:\Users\FoXor\TTOS0300-RPG-L5565\xRPG\GameEngine\obj\Debug\GameEngine.pdb
+C:\Users\FoXor\TTOS0300-RPG-L5565\xRPG\GameEngine\obj\Debug\GameEngine.g.resources
+C:\Users\FoXor\TTOS0300-RPG-L5565\xRPG\GameEngine\obj\Debug\GameEngine.Properties.Resources.resources
+C:\Users\FoXor\TTOS0300-RPG-L5565\xRPG\GameEngine\obj\Debug\GameEngine.csproj.GenerateResource.Cache

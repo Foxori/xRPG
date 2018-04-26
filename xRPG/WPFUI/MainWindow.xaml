@@ -1,0 +1,225 @@
+﻿<Window x:Class="WPFUI.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:local="clr-namespace:WPFUI"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        FontSize="9pt"
+        Title="xRPG alpha v 0.1" Height="720" Width="960">
+    <Window.Resources>
+        <BooleanToVisibilityConverter x:Key="BooleanToVisibility"/>
+    </Window.Resources>
+    <Grid Background="DarkKhaki">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="250"/>
+            <RowDefinition Height="250"/>
+            <RowDefinition Height="*"/>
+
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="250"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="250"/>
+
+        </Grid.ColumnDefinitions>
+        <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Content="Menu" Background="AliceBlue"/>
+        <Grid Grid.Row="1" Grid.Column="0">
+            <TabControl>
+                <TabItem Header="Quests">
+                    <DataGrid IsReadOnly="True" ItemsSource="{Binding StandardPlayer.PlayerQuests}" AutoGenerateColumns="False" HeadersVisibility="Column" Background="Goldenrod">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Name" Binding="{Binding PlayerQuest.QuestName}" Width="*"/>
+                            <DataGridTextColumn Header="Completed" Binding="{Binding IsQuestDone}" Width="*"/>
+
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </TabItem>
+            </TabControl>
+        </Grid>
+
+        <Grid Grid.Row="1" Grid.Column="1" Grid.RowSpan="2" >
+
+            <RichTextBox x:Name="GameMessages"
+                         Background="BlanchedAlmond"
+                         VerticalScrollBarVisibility="Auto">
+                <RichTextBox.Resources>
+                    <Style TargetType="{x:Type Paragraph}">
+                        <Setter Property="Margin" Value="0"/>
+                    </Style>
+                </RichTextBox.Resources>
+            </RichTextBox>
+        </Grid>
+
+        <Grid Grid.Row="2" Grid.Column="0">
+            <TabControl>
+                <TabItem Header="Inventory">
+                    <DataGrid IsReadOnly="True" ItemsSource="{Binding StandardPlayer.PlayerInventory}" AutoGenerateColumns="False" HeadersVisibility="Column" Background="Goldenrod">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Item" Binding="{Binding ItemName}" Width="*"/>
+                            <DataGridTextColumn Header="Value" Binding="{Binding ItemValue}" Width="*"/>
+
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </TabItem>
+            </TabControl>
+        </Grid>
+
+
+        <Grid Grid.Row="2" Grid.Column="2" Background="Lavender">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <TextBlock Grid.Row="0"
+                       HorizontalAlignment="Center"
+                       Height="Auto"
+                       Text="{Binding CurrentMob.MobName}"/>
+            <Image Grid.Row="1"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center"
+                   Height="125"
+                   Width="125"
+                   Source="{Binding CurrentMob.MobImgName}"/>
+            <StackPanel Grid.Row="2"
+                        HorizontalAlignment="Center"
+                        Visibility="{Binding HasMob, Converter={StaticResource BooleanToVisibility}}"
+                        Orientation="Horizontal">
+                <TextBlock>Current HP:</TextBlock>
+                <TextBlock Text="{Binding CurrentMob.MobHp}"/>
+            </StackPanel>
+
+
+
+        </Grid>
+
+        <Grid Grid.Row="1" Grid.Column="2" Background="Lavender">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Row="0" HorizontalAlignment="Center" Text="{Binding PlayerLocation.PlaceName}"/>
+            <Image Grid.Row="1" Height="125" Width="125" HorizontalAlignment="Center" VerticalAlignment="Center" Source="{Binding PlayerLocation.ImgName}"></Image>
+            <TextBlock Grid.Row="2" HorizontalAlignment="Center" Text="{Binding PlayerLocation.PlaceDescription}"/>
+
+
+        </Grid>
+        <Grid Grid.Row="3" Grid.Column="0"  Background="DarkKhaki">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Label Grid.Row="0" Grid.Column="0" Content="Name:"/>
+            <Label Grid.Row="0" Grid.Column="1" Content="{Binding StandardPlayer.NickName}"/>
+            <Label Grid.Row="0" Grid.Column="2" Content="LVL:"/>
+            <Label Grid.Row="0" Grid.Column="4" Content="{Binding StandardPlayer.Level}"/>
+            <Label Grid.Row="1" Grid.Column="0" Content="Class:"/>
+            <Label Grid.Row="1" Grid.Column="1" Content="{Binding StandardPlayer.CharClass}"/>
+            <Label Grid.Row="1" Grid.Column="2" Content="Gold pieces:"/>
+            <Label Grid.Row="1" Grid.Column="4" Content="{Binding StandardPlayer.GoldPieces}"/>
+            <Label Grid.Row="2" Grid.Column="0" Content="Current XP:"/>
+            <Label Grid.Row="2" Grid.Column="1" Content="{Binding StandardPlayer.Experience}"/>
+            <Label Grid.Row="3" Grid.Column="0" Content="HP:"/>
+            <Label Grid.Row="3" Grid.Column="1" Content="{Binding StandardPlayer.HealthPoints}"/>
+            <Button Content="God mode" Grid.Column="3" HorizontalAlignment="Left" Margin="0,62,-62,-33" Grid.Row="3" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
+
+        </Grid>
+
+        <Grid Grid.Row="3" Grid.Column="1"
+              Visibility="{Binding HasMob, Converter={StaticResource BooleanToVisibility}}"
+              HorizontalAlignment="Center"
+              VerticalAlignment="Center"
+              >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="150"/>
+                <ColumnDefinition Width="10"/>
+                <ColumnDefinition Width="50"/>
+                <ColumnDefinition Width="10"/>
+                <ColumnDefinition Width="50"/>
+            </Grid.ColumnDefinitions>
+            <ComboBox Grid.Row="0" Grid.Column="0"
+                      ItemsSource="{Binding StandardPlayer.Weapons}"
+                      SelectedItem="{Binding CurrentWeapon}"
+                      DisplayMemberPath="ItemName"
+                      SelectedValuePath="ItemId"/>
+            <Button x:Name="btnAttack" Grid.Row="0" Grid.Column="2" Content="Attack" Click="btnAttack_Click"/>
+
+
+        </Grid>
+        <Grid Grid.Row="3" Grid.Column="2"  Background="DarkKhaki">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="250"/>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Row="0" Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="36"/>
+                    <RowDefinition Height="*"/>
+
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Button x:Name="btnUp" Grid.Row="0" Grid.Column="1" Click="btnUp_Click" Visibility="{Binding CanMoveUp, Converter={StaticResource BooleanToVisibility}}">
+                    <Button.Template>
+                        <ControlTemplate>
+                            <Image Source="/GameEngine;component/Img/interfaceImg/TopArrow.png"></Image>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+                <Button x:Name="btnDown" Grid.Row="2" Grid.Column="1" Click="btnDown_Click" Visibility="{Binding CanMoveDown, Converter={StaticResource BooleanToVisibility}}">
+                    <Button.Template>
+                        <ControlTemplate>
+                            <Image Source="/GameEngine;component/Img/interfaceImg/BottomArrow.png"></Image>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+                <Button x:Name="btnLeft" Grid.Row="1" Grid.Column="0" Click="btnLeft_Click" Visibility="{Binding CanMoveLeft, Converter={StaticResource BooleanToVisibility}}">
+                    <Button.Template>
+                        <ControlTemplate>
+                            <Image Source="/GameEngine;component/Img/interfaceImg/LeftArrow.png"></Image>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+                <Button x:Name="btnRight" Grid.Row="1" Grid.Column="3" Click="btnRight_Click" Visibility="{Binding CanMoveRight, Converter={StaticResource BooleanToVisibility}}">
+                    <Button.Template>
+                        <ControlTemplate>
+                            <Image Source="/GameEngine;component/Img/interfaceImg/RightArrow.png"></Image>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+                <Button x:Name="btnTrade" Grid.Row="1" Grid.Column="1" Visibility="{Binding HasTrader, Converter={StaticResource BooleanToVisibility}}" Content="Trade" Click="btnTrade_Click" Background="Firebrick"></Button>
+
+            </Grid>
+
+        </Grid>
+
+    </Grid>
+</Window>

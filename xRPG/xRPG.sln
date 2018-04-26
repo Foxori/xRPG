@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2024
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPFUI", "WPFUI\WPFUI.csproj", "{BCDAFFE0-9841-4D60-B85E-7F9A53D765C1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameEngine", "GameEngine\GameEngine.csproj", "{F8209EFF-962A-4268-8135-6A5215CDB53F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BCDAFFE0-9841-4D60-B85E-7F9A53D765C1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BCDAFFE0-9841-4D60-B85E-7F9A53D765C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BCDAFFE0-9841-4D60-B85E-7F9A53D765C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BCDAFFE0-9841-4D60-B85E-7F9A53D765C1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F8209EFF-962A-4268-8135-6A5215CDB53F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F8209EFF-962A-4268-8135-6A5215CDB53F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F8209EFF-962A-4268-8135-6A5215CDB53F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F8209EFF-962A-4268-8135-6A5215CDB53F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2930BE5E-0EBB-4B03-A804-7FE180467F37}
+	EndGlobalSection
+EndGlobal
